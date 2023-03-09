@@ -13,7 +13,6 @@ class Medico(Thread):
 		while True:
 			print(f"{self.nome} cerca un paziente per operare")
 			paziente = self.casa.chiamaPerOperazione()
-			print(f"{self.nome} ha chiamato {paziente} per operare")
 			self.opera()
 			print(f"{self.nome} ha finito di operare {paziente}, ora riordina la sala")
 			self.preparaSala()

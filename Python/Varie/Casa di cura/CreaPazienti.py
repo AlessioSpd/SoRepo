@@ -11,6 +11,5 @@ class CreaPazienti(Thread):
 		i = 0
 		while True:
 			self.casa.entraPaziente(f"Paziente_{i}")
-			print(f"Paziente_{i} e entrato")
 			i += 1
 			sleep(2)
