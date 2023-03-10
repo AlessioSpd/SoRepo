@@ -75,8 +75,37 @@ my $num_gatti = @gatti;
 print "numgatti: $num_gatti\n";
 
 #concatenzazione di string
-print 'Posseggo '.@gatti." gatti!\n"
+print 'Posseggo '.@gatti." gatti!\n";
 
 # trovare gli elementi univoci in una lista
 my %uniq;
 my @uniques = keys %uniq;
+
+# prefix e postfix
+
+$x = 4;
+print "ciao" if ($x > 3);
+
+# unlessm -> a meno che
+print "ciao2" unless ($x > 3);
+
+# PS, quanfo modifichi un dato all interno di un array, all interno di un for,
+# il valore cambia, come se fosse passato per indirizzo
+
+# per ciclare sulle coppie di un hash
+print "\n\n";
+%hash = (
+    ciao => "marco",
+    123 => "luigi",
+    345636 => "gianni",
+);
+
+while (my ($chiave, $valore) = each %hash) {
+    print "$chiave - $valore\n";
+}
+
+
+#all interno dei loop
+# next = continue
+# last = break
+# redo = restart del loop senza valutare nuovamente la condizione
