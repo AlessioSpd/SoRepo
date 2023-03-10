@@ -19,6 +19,7 @@ close $fh;
 
 #scrittura di un file
 open($fh2, ">", "file1.txt") || die $1;
+print $fh2 "Stringa da stampare";
 
 #chiusura file
 close $fh;
