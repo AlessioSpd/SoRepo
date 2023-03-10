@@ -33,8 +33,6 @@ print "Hai inserito ". ($#array + 1) . " elementi\n";
 
 $sum = 0;
 
-for my $elem (@array) {
-    $sum += $elem;
-}
+for(@array) { $sum += $_ }
 
 print "La somma degli elementi è ".$sum."\n";
