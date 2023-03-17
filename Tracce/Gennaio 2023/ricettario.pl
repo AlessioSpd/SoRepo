@@ -1,5 +1,7 @@
 #!/usr/bin/perl
 
+use warnings;
+
 sub cercaNelFile {
     $nome_file = shift;
     $cartella = shift;
@@ -33,7 +35,7 @@ sub stampa_procedimento {
     $flag = 0;
     
     print"\n";
-    
+
     open($fh, "<", $cartella."/".$nome_file.".txt") || die "Impossibile aprire il file proc";
     while (<$fh>) {
         $flag = 1 if($_ =~ /Preparazione/);
@@ -44,7 +46,7 @@ sub stampa_procedimento {
     close $fh;
 }
 
-$cartella = "./CartellaRicette";
+$cartella = "./RICETTE";
 $ingrediente = shift || die "Almeno un argomento";
 push @ingredienti, $ingrediente;
 
@@ -59,13 +61,7 @@ $contatore = 1;
 %hash_scelta = ();
 cercaNelFile($_, $cartella, $contatore, \%hash_scelta, \@ingredienti) for (@ricette);
 
-for (keys %hash_scelta) {
-    print "chiave = $_ -- valore = $hash_scelta{$_}\n";
-}
-
 print "Scegli la ricetta di cui vedere il procedimento: ";
 $risposta = <STDIN>;
-unless ($risponta <= 0 || $risposta > $contatore || $risposta cmp "END") {
-    chomp($risposta);
-    stampa_procedimento($cartella, $hash_scelta{$risposta});
-}
+chomp($risposta);
+stampa_procedimento($cartella, $hash_scelta{$risposta}) unless ($risposta <= 0 || $risposta > $contatore || $risposta eq "END");
